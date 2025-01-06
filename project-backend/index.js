@@ -4,11 +4,16 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const userRoutes = require('./routes/user'); // Import user routes
+const User = require('./models/User'); // Adjust the path as needed
+
 
 dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json());
+// Register the user route
+app.use('/api', userRoutes); // Prefix all user routes with /api
 
 const PORT = 3000;
 
@@ -20,14 +25,6 @@ mongoose
   })
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.error('MongoDB connection error:', err));
-
-// User Model
-const UserSchema = new mongoose.Schema({
-  name: { type: String },
-  email: { type: String, unique: true, required: true },
-  password: { type: String, required: true },
-});
-const User = mongoose.model('User', UserSchema);
 
 // Signup Route
 app.post('/signup', async (req, res) => {

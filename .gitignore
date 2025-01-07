@@ -24,3 +24,4 @@ yarn-error.log*
 
 # .gitignore
 .env
+notion-like-app/node_modules/.cache/

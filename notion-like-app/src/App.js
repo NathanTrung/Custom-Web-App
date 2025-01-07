@@ -2,9 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Home from './pages/Home';
-import Page2 from './pages/Page2';
-import Page3 from './pages/Page3';
+import TaskTracker from './pages/TaskTracker';
+import FinanceTracker from './pages/FinanceTracker';
 import SignupLogin from './pages/SignupLogin';
+import ChatBot from './pages/ChatBot'
 
 const PrivateRoute = ({ children }) => {
   const token = localStorage.getItem('token'); // Check token
@@ -23,9 +24,9 @@ const App = () => {
           path="/home"
           element={
             <PrivateRoute>
-              <div className="flex h-screen">
-                <Sidebar />
-                <div className="flex-grow bg-gray-100 p-8">
+             <div className="flex">
+              <Sidebar />
+              <div className="flex-1 min-h-screen bg-gray-100">
                   <Home />
                 </div>
               </div>
@@ -33,26 +34,39 @@ const App = () => {
           }
         />
         <Route
-          path="/page2"
+          path="/tasktracker"
           element={
             <PrivateRoute>
-              <div className="flex h-screen">
-                <Sidebar />
-                <div className="flex-grow bg-gray-100 p-8">
-                  <Page2 />
+              <div className="flex">
+              <Sidebar />
+              <div className="flex-1 min-h-screen bg-gray-100">
+                  <TaskTracker />
                 </div>
               </div>
             </PrivateRoute>
           }
         />
         <Route
-          path="/page3"
+          path="/financetracker"
           element={
             <PrivateRoute>
-              <div className="flex h-screen">
-                <Sidebar />
-                <div className="flex-grow bg-gray-100 p-8">
-                  <Page3 />
+              <div className="flex">
+              <Sidebar />
+              <div className="flex-1 min-h-screen bg-gray-100">
+                  <FinanceTracker />
+                </div>
+              </div>
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/chatbot"
+          element={
+            <PrivateRoute>
+              <div className="flex">
+              <Sidebar />
+              <div className="flex-1 min-h-screen bg-gray-100">
+                  <ChatBot />
                 </div>
               </div>
             </PrivateRoute>

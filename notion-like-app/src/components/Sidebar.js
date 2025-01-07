@@ -17,11 +17,14 @@ const Sidebar = () => {
     <Link to="/home" className="px-6 py-4 hover:bg-gray-700">
       Home
     </Link>
-    <Link to="/page2" className="px-6 py-4 hover:bg-gray-700">
-      TBD
+    <Link to="/tasktracker" className="px-6 py-4 hover:bg-gray-700">
+      Task Tracker
     </Link>
-    <Link to="/page3" className="px-6 py-4 hover:bg-gray-700">
-      TBD
+    <Link to="/financetracker" className="px-6 py-4 hover:bg-gray-700">
+      Finance Tracker
+    </Link>
+    <Link to="/chatbot" className="px-6 py-4 hover:bg-gray-700">
+      ChatBot
     </Link>
     <button
       onClick={handleLogout}
